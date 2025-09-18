@@ -123,7 +123,7 @@ const Login = () => {
           {/* Register Link */}
           <p className="text-center text-sm mt-4">
             Don't have an account?{" "}
-            <Link to="/register" className="link link-primary">
+            <Link to="/register" state={from} className="link link-primary">
               Register here
             </Link>
           </p>
