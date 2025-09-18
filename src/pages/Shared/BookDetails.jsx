@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { AuthContext } from "../../contexts/AuthContext";
+import defaultBookImg from "../../assets/defaultBook.png"
 
 const BookDetails = ({
   book,
@@ -78,7 +79,7 @@ const BookDetails = ({
       <div className="card w-full max-w-md bg-base-100 shadow-lg">
         <figure className="h-48 overflow-hidden">
           <img
-            src={book.image}
+            src={book.image || defaultBookImg}
             alt={book.name}
             className="object-cover w-full h-full"
           />

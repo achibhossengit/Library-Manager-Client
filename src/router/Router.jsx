@@ -7,6 +7,7 @@ import AddBook from "../pages/AddBook/AddBook";
 import PrivateRoute from "./PrivateRoute";
 import AllBooks from "../pages/AllBooks/AllBooks";
 import MyAddedList from "../pages/MyAddedList/MyAddedList";
+import NotFound from "../pages/NotFound/NotFound";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,7 @@ const router = createBrowserRouter([
       },
     ],
   },
+  { path: "*", Component: NotFound },
 ]);
 
 export default router;
