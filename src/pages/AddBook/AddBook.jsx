@@ -19,7 +19,9 @@ const AddBook = () => {
     data.addedBy = user?.email;
     setLoading(true);
     try {
-      const res = await axios.post("http://localhost:3000/books", data);
+      const res = await axios.post("http://localhost:3000/books", data, {
+        headers: { Authorization: user.accessToken },
+      });
       if (res.data?.insertedId) {
         toast.success("New Book Added Successfully!");
         reset();

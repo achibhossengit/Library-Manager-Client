@@ -6,6 +6,7 @@ import Register from "../pages/Register/Register";
 import AddBook from "../pages/AddBook/AddBook";
 import PrivateRoute from "./PrivateRoute";
 import AllBooks from "../pages/AllBooks/AllBooks";
+import MyAddedList from "../pages/MyAddedList/MyAddedList";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <AddBook></AddBook>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "my-added-list",
+        element: (
+          <PrivateRoute>
+            <MyAddedList></MyAddedList>
           </PrivateRoute>
         ),
       },
