@@ -1,2 +1,29 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+@plugin "daisyui/theme" {
+  name: "library";
+  default: true;
+
+  --color-primary: #2c3e50; /* Deep blue-gray for trust and stability */
+  --color-primary-content: #ffffff;
+
+  --color-secondary: #16a085; /* Teal for a modern, clean accent */
+  --color-secondary-content: #ffffff;
+
+  --color-accent: #f39c12; /* Warm amber for highlights */
+  --color-accent-content: #ffffff;
+
+  --color-neutral: #ecf0f1; /* Light gray for backgrounds */
+  --color-neutral-content: #2c3e50;
+
+  --color-base-100: #ffffff;
+  --color-base-200: #f4f4f4;
+  --color-base-300: #e0e0e0;
+  --color-base-content: #2c3e50;
+
+  --color-info: #3498db;
+  --color-success: #27ae60;
+  --color-warning: #e67e22;
+  --color-error: #e74c3c;
+}
