@@ -4,7 +4,7 @@ import Links from "./Links";
 
 const Footer = () => {
   return (
-    <footer className="bg-base-200 text-base-content text-sm">
+    <footer className="bg-base-300 text-base-content text-sm">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-5 p-5">
         {/* Left: Logo, Name & Vision */}
         <div>
@@ -61,7 +61,7 @@ const Footer = () => {
       </div>
 
       {/* Bottom: Developer Info */}
-      <div className="footer footer-center p-4 bg-base-300 text-xs">
+      <div className="footer footer-center p-4 border-t text-xs">
         <p className="flex">
           Developed by —
           <a

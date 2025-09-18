@@ -2,19 +2,21 @@ import { Link } from "react-router";
 import { FaUserCircle } from "react-icons/fa";
 import logo from "../../assets/logo.png";
 import Links from "./Links";
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/AuthContext";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
-  const user = null;
-  const logOut = () => {
-    console.log("Develop it");
-  };
+  const { user, logOutUser } = useContext(AuthContext);
 
   const handleSignOut = () => {
-    logOut();
+    logOutUser()
+      .then(() => toast.success("Signout Successfully"))
+      .catch((error) => console.log(error));
   };
 
   return (
-    <div className="bg-base-100 shadow-md px-2 sm:px-4">
+    <div className="bg-base-300 shadow-md px-2 sm:px-4">
       <div className="navbar max-w-6xl mx-auto">
         {/* Mobile Menu */}
         <div className="dropdown lg:hidden">
@@ -68,12 +70,13 @@ const Navbar = () => {
                 tabIndex={0}
                 className="btn btn-ghost btn-circle avatar btn-sm"
               >
-                <div className="w-8 sm:w-10 rounded-full">
-                  <img
-                    src={user.photoURL || "https://i.ibb.co/0jqHpnp/user.png"}
-                    alt="user"
-                  />
-                </div>
+                {user.photoURL ? (
+                  <div className="w-8 sm:w-10 rounded-full">
+                    <img src={user.photoURL} alt="user" />
+                  </div>
+                ) : (
+                  <FaUserCircle size={20}></FaUserCircle>
+                )}
               </label>
               <ul
                 tabIndex={0}
