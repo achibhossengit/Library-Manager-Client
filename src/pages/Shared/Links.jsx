@@ -1,23 +1,23 @@
 import React from "react";
-import { Link } from "react-router";
+import { NavLink } from "react-router";
 
 const Links = () => {
   return (
     <>
       <li className="text-xs sm:text-sm">
-        <Link to="/">Home</Link>
+        <NavLink to="/">Home</NavLink>
       </li>
       <li className="text-xs sm:text-sm">
-        <Link to="/all-books">All Books</Link>
+        <NavLink to="/all-books">All Books</NavLink>
       </li>
       <li className="text-xs sm:text-sm">
-        <Link to="/add-book">Add Book</Link>
+        <NavLink to="/add-book">Add Book</NavLink>
       </li>
       <li className="text-xs sm:text-sm">
-        <Link to="/borrowed-books">Borrowed Books</Link>
+        <NavLink to="/borrowed-books">Borrowed Books</NavLink>
       </li>
       <li className="text-xs sm:text-sm">
-        <Link to="/my-added-list">My Added List</Link>
+        <NavLink to="/my-added-list">My Added List</NavLink>
       </li>
     </>
   );
