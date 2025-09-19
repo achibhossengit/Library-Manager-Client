@@ -23,7 +23,9 @@ const BookDetails = () => {
         { bookId: book._id },
         { headers: { Authorization: user.accessToken } }
       );
-      if (res.data.insertedId) toast.success("Borrowed Successfully!");
+      if (res.data.insertedId) {
+        toast.success("Borrowed Successfully!");
+      }
     } catch (error) {
       console.error(error);
       toast.error("Something went wrong!");

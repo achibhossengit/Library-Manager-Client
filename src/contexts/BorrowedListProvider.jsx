@@ -11,10 +11,9 @@ const BorrowedListProvider = ({ children }) => {
     const fetchBorrowedList = async () => {
       setBorrowedLoading(true);
       try {
-        const res = await axios.get(
-          `http://localhost:3000/borrowed-list/user/${user?.email}`,
-          { headers: { Authorization: user.accessToken } }
-        );
+        const res = await axios.get(`http://localhost:3000/borrowed-list/ids`, {
+          headers: { Authorization: user.accessToken },
+        });
         setMyBorrowedList(res.data);
       } catch (error) {
         console.log(error);

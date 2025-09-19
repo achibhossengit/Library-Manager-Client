@@ -12,6 +12,7 @@ import BookDetails from "../pages/BookDetails/BookDetails";
 import axios from "axios";
 import Spinner from "../pages/Shared/Spinner";
 import BorrowedListProvider from "../contexts/BorrowedListProvider";
+import MyBorrowedBooks from "../pages/BorrowedBooks/BorrowedBooks";
 
 const router = createBrowserRouter([
   {
@@ -50,6 +51,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <MyAddedList></MyAddedList>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "borrowed-books",
+        element: (
+          <PrivateRoute>
+            <MyBorrowedBooks></MyBorrowedBooks>
           </PrivateRoute>
         ),
       },
