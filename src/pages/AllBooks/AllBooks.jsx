@@ -23,7 +23,7 @@ const AllBooks = () => {
       setLoading(true);
       try {
         const res = await axios.get(
-          `http://localhost:3000/books?category=${selectedCategory}`
+          `https://library-manager-server-ivory.vercel.app/books?category=${selectedCategory}`
         );
         setBooks(res.data);
       } catch (error) {

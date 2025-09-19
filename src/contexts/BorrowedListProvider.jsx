@@ -11,7 +11,7 @@ const BorrowedListProvider = ({ children }) => {
     const fetchBorrowedList = async () => {
       setBorrowedLoading(true);
       try {
-        const res = await axios.get(`http://localhost:3000/borrowed-list/ids`, {
+        const res = await axios.get(`https://library-manager-server-ivory.vercel.app/borrowed-list/ids`, {
           headers: { Authorization: user.accessToken },
         });
         setMyBorrowedList(res.data);

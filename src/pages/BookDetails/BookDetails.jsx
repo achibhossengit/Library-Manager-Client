@@ -19,7 +19,7 @@ const BookDetails = () => {
     setLoadingAction(true);
     try {
       const res = await axios.post(
-        "http://localhost:3000/borrowed-list",
+        "https://library-manager-server-ivory.vercel.app/borrowed-list",
         { bookId: book._id },
         { headers: { Authorization: user.accessToken } }
       );

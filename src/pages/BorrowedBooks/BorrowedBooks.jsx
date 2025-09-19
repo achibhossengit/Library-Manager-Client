@@ -17,7 +17,7 @@ const BorrowedBooks = () => {
       setLoading(true);
       try {
         const res = await axios.get(
-          "http://localhost:3000/borrowed-list/books",
+          "https://library-manager-server-ivory.vercel.app/borrowed-list/books",
           {
             headers: { Authorization: user.accessToken },
           }
@@ -40,7 +40,7 @@ const BorrowedBooks = () => {
     setReturningId(borrowedId);
     try {
       const res = await axios.delete(
-        `http://localhost:3000/borrowed-list/return/${borrowedId}`,
+        `https://library-manager-server-ivory.vercel.app/borrowed-list/return/${borrowedId}`,
         {
           headers: { Authorization: user.accessToken },
         }

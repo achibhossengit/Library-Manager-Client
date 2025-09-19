@@ -12,7 +12,7 @@ const PopularBooks = () => {
     const fetchPopularBooks = async () => {
       setLoading(true);
       try {
-        const res = await axios.get("http://localhost:3000/books/popular");
+        const res = await axios.get("https://library-manager-server-ivory.vercel.app/books/popular");
         setPopularBooks(res.data);
       } catch (error) {
         console.error("Failed to fetch popular books:", error);

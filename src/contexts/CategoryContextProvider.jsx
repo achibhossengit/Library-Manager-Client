@@ -7,7 +7,7 @@ const CategoryContextProvider = ({ children }) => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/categories");
+        const res = await axios.get("https://library-manager-server-ivory.vercel.app/categories");
         setCategories(res.data);
       } catch (error) {
         console.log(error);

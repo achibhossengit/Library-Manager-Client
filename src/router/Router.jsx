@@ -35,7 +35,7 @@ const router = createBrowserRouter([
         hydrateFallbackElement: <Spinner></Spinner>,
         loader: ({ params }) =>
           axios
-            .get(`http://localhost:3000/books/${params.book_id}`)
+            .get(`https://library-manager-server-ivory.vercel.app/books/${params.book_id}`)
             .then((res) => res.data),
       },
       {

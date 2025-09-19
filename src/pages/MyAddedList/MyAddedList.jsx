@@ -15,7 +15,7 @@ const MyAddedList = () => {
     if (!user?.email || !user?.accessToken) return;
 
     axios
-      .get(`http://localhost:3000/books/user/${user.email}`, {
+      .get(`https://library-manager-server-ivory.vercel.app/books/user/${user.email}`, {
         headers: {
           Authorization: user.accessToken,
         },

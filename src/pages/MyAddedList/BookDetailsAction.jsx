@@ -20,7 +20,7 @@ const BookDetailsAction = ({ book, setSelectedBook, setBooks, onClose }) => {
   const handleUpdate = async (updatedData) => {
     setLoadingAction(true);
     try {
-      await axios.put(`http://localhost:3000/books/${book._id}`, updatedData, {
+      await axios.put(`https://library-manager-server-ivory.vercel.app/books/${book._id}`, updatedData, {
         headers: {
           Authorization: user.accessToken,
         },
@@ -54,7 +54,7 @@ const BookDetailsAction = ({ book, setSelectedBook, setBooks, onClose }) => {
 
     setLoadingAction(true);
     try {
-      await axios.delete(`http://localhost:3000/books/${book._id}`, {
+      await axios.delete(`https://library-manager-server-ivory.vercel.app/books/${book._id}`, {
         headers: {
           Authorization: user.accessToken,
         },
