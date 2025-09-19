@@ -2,6 +2,7 @@ import React from "react";
 import Banner from "./Banner";
 import Categories from "./Categories";
 import PopularBooks from "./PopularBooks";
+import FeaturedSection from "./FeaturedSection";
 
 const Home = () => {
   return (
@@ -14,6 +15,9 @@ const Home = () => {
       </div>
       <div>
         <PopularBooks></PopularBooks>
+      </div>
+      <div>
+        <FeaturedSection></FeaturedSection>
       </div>
     </div>
   );
