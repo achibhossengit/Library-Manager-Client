@@ -4,14 +4,11 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { AuthContext } from "../../contexts/AuthContext";
 import defaultBookImg from "../../assets/defaultBook.png";
+import { CategoryContext } from "../../contexts/CategoryContenxt";
 
-const BookDetailsAction = ({
-  book,
-  setSelectedBook,
-  setBooks,
-  onClose,
-}) => {
+const BookDetailsAction = ({ book, setSelectedBook, setBooks, onClose }) => {
   const { user } = useContext(AuthContext);
+  const categories = useContext(CategoryContext);
   const [isEditing, setIsEditing] = useState(false);
   const [loadingAction, setLoadingAction] = useState(false);
 
@@ -128,11 +125,11 @@ const BookDetailsAction = ({
                   <option disabled value="">
                     Select category
                   </option>
-                  <option value="Novel">Novel</option>
-                  <option value="Thriller">Thriller</option>
-                  <option value="History">History</option>
-                  <option value="Drama">Drama</option>
-                  <option value="Sci-Fi">Sci-Fi</option>
+                  {categories.map((category) => (
+                    <option key={category._id} value={category.name}>
+                      {category.name}
+                    </option>
+                  ))}
                 </select>
               </div>
               <div className="form-control">

@@ -1,14 +1,15 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import Spinner from "../Shared/Spinner";
 import BookCard from "../Shared/BookCard";
 import { useNavigate, useSearchParams } from "react-router";
 import { FaSearch } from "react-icons/fa";
+import { CategoryContext } from "../../contexts/CategoryContenxt";
 
 const AllBooks = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
-
+  const categories = useContext(CategoryContext);
   const category = searchParams.get("category");
   const availability = searchParams.get("availability");
 
@@ -89,11 +90,11 @@ const AllBooks = () => {
           onChange={(e) => setCategoryFilter(e.target.value)}
         >
           <option value="">All Categories</option>
-          <option value="Novel">Novel</option>
-          <option value="Thriller">Thriller</option>
-          <option value="History">History</option>
-          <option value="Drama">Drama</option>
-          <option value="Sci-Fi">Sci-Fi</option>
+          {categories.map((category) => (
+            <option key={category._id} value={category.name}>
+              {category.name}
+            </option>
+          ))}
         </select>
 
         {/* Search Input */}

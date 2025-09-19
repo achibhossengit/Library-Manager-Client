@@ -3,9 +3,11 @@ import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { AuthContext } from "../../contexts/AuthContext";
+import { CategoryContext } from "../../contexts/CategoryContenxt";
 
 const AddBook = () => {
   const { user } = useContext(AuthContext);
+  const categories = useContext(CategoryContext);
   const [loading, setLoading] = useState(false);
   const {
     register,
@@ -122,12 +124,12 @@ const AddBook = () => {
                 className="select w-full"
                 {...register("category", { required: true })}
               >
-                <option value="">Select category</option>
-                <option value="Novel">Novel</option>
-                <option value="Thriller">Thriller</option>
-                <option value="History">History</option>
-                <option value="Drama">Drama</option>
-                <option value="Sci-Fi">Sci-Fi</option>
+                <option disabled value="">Select category</option>
+                {categories.map((category) => (
+                  <option key={category._id} value={category.name}>
+                    {category.name}
+                  </option>
+                ))}
               </select>
               {errors.category && (
                 <span className="text-error text-xs">Category is required</span>
