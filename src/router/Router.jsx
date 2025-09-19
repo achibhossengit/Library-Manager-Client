@@ -8,6 +8,10 @@ import PrivateRoute from "./PrivateRoute";
 import AllBooks from "../pages/AllBooks/AllBooks";
 import MyAddedList from "../pages/MyAddedList/MyAddedList";
 import NotFound from "../pages/NotFound/NotFound";
+import BookDetails from "../pages/BookDetails/BookDetails";
+import axios from "axios";
+import Spinner from "../pages/Shared/Spinner";
+import BorrowedListProvider from "../contexts/BorrowedListProvider";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +22,21 @@ const router = createBrowserRouter([
       { path: "login", Component: Login },
       { path: "register", Component: Register },
       { path: "all-books", Component: AllBooks },
+      {
+        path: "all-books/:book_id",
+        element: (
+          <PrivateRoute>
+            <BorrowedListProvider>
+              <BookDetails></BookDetails>
+            </BorrowedListProvider>
+          </PrivateRoute>
+        ),
+        hydrateFallbackElement: <Spinner></Spinner>,
+        loader: ({ params }) =>
+          axios
+            .get(`http://localhost:3000/books/${params.book_id}`)
+            .then((res) => res.data),
+      },
       {
         path: "add-book",
         element: (

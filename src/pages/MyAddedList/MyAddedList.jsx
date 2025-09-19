@@ -3,7 +3,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { AuthContext } from "../../contexts/AuthContext";
 import Spinner from "../Shared/Spinner";
-import BookDetails from "../Shared/BookDetails";
+import BookDetailsAction from "./BookDetailsAction";
 
 const MyAddedList = () => {
   const { user } = useContext(AuthContext);
@@ -15,7 +15,7 @@ const MyAddedList = () => {
     if (!user?.email || !user?.accessToken) return;
 
     axios
-      .get(`http://localhost:3000/books/${user.email}`, {
+      .get(`http://localhost:3000/books/user/${user.email}`, {
         headers: {
           Authorization: user.accessToken,
         },
@@ -66,12 +66,11 @@ const MyAddedList = () => {
       </div>
 
       {selectedBook && (
-        <BookDetails
+        <BookDetailsAction
           book={selectedBook}
           setSelectedBook={setSelectedBook}
           setBooks={setBooks}
           onClose={() => setSelectedBook(null)}
-          show_action={true}
         />
       )}
     </div>

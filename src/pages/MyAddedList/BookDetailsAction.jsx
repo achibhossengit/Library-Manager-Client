@@ -3,14 +3,13 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { AuthContext } from "../../contexts/AuthContext";
-import defaultBookImg from "../../assets/defaultBook.png"
+import defaultBookImg from "../../assets/defaultBook.png";
 
-const BookDetails = ({
+const BookDetailsAction = ({
   book,
-  setSelectedBook = null,
+  setSelectedBook,
   setBooks,
   onClose,
-  show_action = false,
 }) => {
   const { user } = useContext(AuthContext);
   const [isEditing, setIsEditing] = useState(false);
@@ -187,40 +186,30 @@ const BookDetails = ({
             </>
           )}
 
-          <div className="card-actions justify-end mt-4 flex gap-2">
-            {!isEditing && (
+          {!isEditing && (
+            <div className="card-actions justify-end mt-4 flex gap-2">
               <button className="btn btn-outline" onClick={onClose}>
                 Close
               </button>
-            )}
-            {show_action ? (
-              isEditing ? null : (
-                <>
-                  <button
-                    className="btn btn-primary"
-                    onClick={() => setIsEditing(true)}
-                  >
-                    Update
-                  </button>
-                  <button
-                    className="btn btn-error"
-                    onClick={handleDelete}
-                    disabled={loadingAction}
-                  >
-                    {loadingAction ? "Deleting..." : "Delete"}
-                  </button>
-                </>
-              )
-            ) : (
-              <button className="btn btn-primary" disabled={!isAvailable}>
-                Borrow Now
+              <button
+                className="btn btn-primary"
+                onClick={() => setIsEditing(true)}
+              >
+                Update
               </button>
-            )}
-          </div>
+              <button
+                className="btn btn-error"
+                onClick={handleDelete}
+                disabled={loadingAction}
+              >
+                {loadingAction ? "Deleting..." : "Delete"}
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>
   );
 };
 
-export default BookDetails;
+export default BookDetailsAction;
